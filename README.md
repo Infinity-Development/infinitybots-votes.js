@@ -54,28 +54,6 @@ client.on("message", message => {
           .addField("Most Recent", data);
 
          return  message.channel.send(embed)
-
-         /**
-          * CHECK IF USER HAS VOTED 
-         */
-         if (data.userID.includes(message.author.id)) {
-
-             return message.channel.send('User has voted recently');
-
-         } else {
-             return message.channel.send('User has not voted recently');
-         }
-
-         /**
-          * IF THE CHECK ABOVE DOESNT WORK TRY THIS
-          */
-        if (data.includes(message.author.id)) {
-
-             return message.channel.send('User has voted recently');
-
-         } else {
-             return message.channel.send('User has not voted recently');
-         }
        })
     }
     
