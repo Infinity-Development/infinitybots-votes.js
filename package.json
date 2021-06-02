@@ -1,0 +1,28 @@
+{
+    "name": "infinitybots-votes.js",
+    "version": "1.0.0",
+    "description": "Infinity Bot List NPM Module used for seeing the 5 Most Recent Votes for your Bot",
+    "main": "index.js",
+    "dependencies": {
+      "node-fetch": "^2.6.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/InfinityBotList/infinitybots-votes.js.git"
+    },
+    "author": "InfinityBotList",
+    "creator": "TheRealToxicDev",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/InfinityBotList/infinitybots-votes.js/issues"
+    },
+    "homepage": "https://github.com/InfinityBotList/infinitybots-votes.js#readme",
+    "keywords": [
+      "API",
+      "Wrapper"
+    ]
+  }
