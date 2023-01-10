@@ -1,5 +1,5 @@
 # InfinityBots-Votes.js
-Official NPM Module for viewing the 5 most recent votes for your Bot on the Infinity Bot List [Website](https://infinitybotlist.com)
+Official NPM Module for handling voting on Infinity Bot List [Website](https://infinitybotlist.com)
 
 ---
 
@@ -8,7 +8,7 @@ Official NPM Module for viewing the 5 most recent votes for your Bot on the Infi
 ### Constructor
 
 ```
-IBLVotes(botID, token)
+IBLVotes(token)
 ```
 
 ---
@@ -16,18 +16,9 @@ IBLVotes(botID, token)
 ###### Args
 Arguement | Type | Required | Description
 |--------------|----------|--------------|--------------|
+userID | Snowflake | Yes | The user ID
 botID | Snowflake | Yes | The bots Discord Client ID.
-token | String | Yes | The bots IBL Auth Token. 
-
---- 
-
-###### Params
-Parameter | Type |  Description
-|--------------|--------------|--------------|
-botID | Snowflake | The bots Discord Client ID.
-userID | Snowflake | The users Discord Client ID.
-date | Number | The date the vote was recieved. 
-
+callback | Function | Yes | The callback that the vote module will call
 --- 
 
 ### Example
@@ -44,41 +35,15 @@ client.on("message", message => {
     if(!message.content.toLowerCase().startsWith(prefix)) return;
     if(message.content == (prefix + "ping")){
         message.reply(`Pong ${client.ws.ping}ms`)
-    }
-     if(message.content == (prefix + "stats")){
-
-        voteData.votes(client.user.id, function(data){
-
-        let embed = new MessageEmbed()
-          .setTitle('Recent Votes for [BOT NAME HERE]')
-          .addField("Most Recent", data);
-
-         return  message.channel.send(embed)
-       })
-    }
-    
+    }    
      if(message.content == (prefix + "votecheck")){
-
-        voteData.votes(client.user.id, function(data){
+        voteData.votes(userIDHERE, client.user.id, function(data){
 
          /**
           * CHECK IF USER HAS VOTED 
          */
-         if (data.userID.includes(message.author.id)) {
-
+         if (data.has_voted) {
              return message.channel.send('User has voted recently');
-
-         } else {
-             return message.channel.send('User has not voted recently');
-         }
-
-         /**
-          * IF THE CHECK ABOVE DOESNT WORK TRY THIS
-          */
-        if (data.includes(message.author.id)) {
-
-             return message.channel.send('User has voted recently');
-
          } else {
              return message.channel.send('User has not voted recently');
          }
