@@ -2,8 +2,7 @@ const fetch = require('node-fetch');
 
 class InfinityVotes {
 
-    constructor (id, auth) {
-        this.id = id,
+    constructor (auth) {
         this.auth = auth,
         this.base_url = 'https://api.infinitybots.gg'
     }
